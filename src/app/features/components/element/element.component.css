@@ -1,0 +1,10 @@
+.element {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgrey;
+  border: 1px solid red;
+  font-size: 16px;
+}
