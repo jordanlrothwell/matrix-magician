@@ -10,7 +10,7 @@ import { RowOperationsComponent } from './components/row-operations/row-operatio
 import { MatrixService } from './matrix.service';
 import { RandomMatrixGenerationStrategy } from './components/matrix/strategies/random-matrix-generation';
 
-import { DragDropModule } from '@angular/cdk/drag-drop'
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 const components = [
   HomeComponent,
@@ -18,31 +18,21 @@ const components = [
   MatrixComponent,
   MatrixRowComponent,
   ElementComponent,
-  RowOperationsComponent
+  RowOperationsComponent,
 ];
 
-const modules = [
-  CommonModule,
-  DragDropModule
-]
+const modules = [CommonModule, DragDropModule];
 
 @NgModule({
-  declarations: [
-    ...components,
-
-  ],
-  imports: [
-    ...modules,
-
-  ],
-  exports: [
-    ...components,
-    ...modules
-  ],
+  declarations: [...components],
+  imports: [...modules],
+  exports: [...components, ...modules],
   providers: [
-    MatrixService, {
-      provide: 'MatrixGenerationStrategy', useClass: RandomMatrixGenerationStrategy
-    }
-  ]
+    MatrixService,
+    {
+      provide: 'MatrixGenerationStrategy',
+      useClass: RandomMatrixGenerationStrategy,
+    },
+  ],
 })
-export class FeaturesModule { }
+export class FeaturesModule {}

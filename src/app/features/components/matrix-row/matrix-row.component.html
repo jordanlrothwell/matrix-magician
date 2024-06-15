@@ -1,3 +1,4 @@
-<div class="row">
+<div class="row" cdkDrag>
     <app-element *ngFor="let element of row?.elements" [element]="element"></app-element>
+    <app-row-operations></app-row-operations>
 </div>

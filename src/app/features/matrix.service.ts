@@ -48,4 +48,7 @@ export class MatrixService {
     console.log('Generated new matrix:', newMatrix);
     this.matrixSubject.next(newMatrix);
   }
+
+  
+
 }
