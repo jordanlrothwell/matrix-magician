@@ -1,4 +1,5 @@
 <div *ngIf="matrix as m" cdkDropList (cdkDropListDropped)="drop($event)" class="matrix">
-    <app-matrix-row *ngFor="let row of m.rows" [row]="row"></app-matrix-row>
-</div>
+    <app-matrix-row *ngFor="let row of m.rows; let i = index" [row]="row" [rowIndex]="i" cdkDrag cdkDragBoundary=".matrix" cdkDragLockAxis="y"></app-matrix-row>
+  </div>
 <button (click)="generateNewMatrix()">Generate New Matrix</button>
+  

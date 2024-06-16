@@ -33,4 +33,5 @@ export class MatrixComponent implements OnInit {
       this.matrixService.updateMatrix(this.matrix);
     }
   }
+
 }

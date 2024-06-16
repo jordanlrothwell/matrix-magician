@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Matrix, MatrixRow, MatrixElement } from '../models/matrix.model';
 import { MatrixGenerationStrategy } from './components/matrix/strategies/matrix-generation';
+import { RowOperation } from '../models/row-operation.model';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +26,7 @@ export class MatrixService {
     for (let i = 0; i < 3; i++) {
       const elements: MatrixElement[] = [];
       for (let j = 0; j < 3; j++) {
-        elements.push({ id: i * 3 + j, value: null });
+        elements.push({ id: i * 3 + j, value: Math.random() * 10 });  // Changed null to random values for demo
       }
       rows.push({ elements });
     }
@@ -36,7 +37,6 @@ export class MatrixService {
     console.log('Current matrix state:', this.matrixSubject.value);
     return this.matrixSubject.value;
   }
-
 
   updateMatrix(newMatrix: Matrix): void {
     console.log('Updating matrix state:', newMatrix);
@@ -49,6 +49,12 @@ export class MatrixService {
     this.matrixSubject.next(newMatrix);
   }
 
-  
-
+  applyRowOperation(rowIndex: number, operation: RowOperation): void {
+    const currentMatrix = this.getMatrix();
+    const updatedRow = operation.apply(currentMatrix.rows[rowIndex]);
+    const updatedMatrix = {
+      rows: currentMatrix.rows.map((row, index) => index === rowIndex ? updatedRow : row)
+    };
+    this.updateMatrix(updatedMatrix);
+  }
 }

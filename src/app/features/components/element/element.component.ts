@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatrixElement } from 'src/app/models/matrix.model';
 
+
 @Component({
   selector: 'app-element',
   templateUrl: './element.component.html',

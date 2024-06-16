@@ -1,3 +1,10 @@
-  <button>Add Row</button>
-  <button>Multiply Row</button>
-  <button>Swap Rows</button>
+<form (submit)="$event.preventDefault()">
+  <button (click)="onMultiply()" class="row-operation-button" mat-icon-button>×</button>
+  <button (click)="onDivide()" class="row-operation-button" mat-icon-button>÷</button>
+  <mat-form-field>
+    <mat-label>Scale Factor</mat-label>
+    <input matInput [(ngModel)]="scaleFactor" [ngModelOptions]="{standalone: true}" />
+  </mat-form-field>
+  
+</form>
+

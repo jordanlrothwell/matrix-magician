@@ -1,4 +1,8 @@
-<div class="row" cdkDrag>
-    <app-element *ngFor="let element of row?.elements" [element]="element"></app-element>
-    <app-row-operations></app-row-operations>
+<div class="row">
+  <app-element *ngFor="let element of row?.elements" [element]="element"></app-element>
+  <app-row-operations 
+    [rowIndex]="rowIndex" 
+    (multiply)="handleMultiply($event)"
+    (divide)="handleDivide($event)">
+  </app-row-operations>
 </div>
